@@ -32,7 +32,7 @@ class LogPrior(pints.LogPrior):
     """
     def _get_rates(self, parameters):
         i = 0
-        for _, rate in self.rate_dict.iteritems():
+        for _, rate in self.rate_dict.items():
             if rate[2] == 'vol_ind':
                 rate[0] = parameters[i]
                 i += 1

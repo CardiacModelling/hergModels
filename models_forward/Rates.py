@@ -205,7 +205,7 @@ class ratesPrior(object):
 
         p = []  # np.zeros(2*len(rates_dict)+1)
 
-        for _, rate in rates_dict.iteritems():
+        for _, rate in rates_dict.items():
             # Sample forward rates
 
             if rate[2] == 'vol_ind':
