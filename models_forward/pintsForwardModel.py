@@ -1,16 +1,13 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 #
 # Pints ForwardModel that runs simulations with Kylie's model.
 # Sine waves optional
 #
-from __future__ import division
-from __future__ import print_function
 import os
 import pints
 import numpy as np
 import myokit
-import myokit.pacing as pacing
-import util
+import models_forward.util as util
 
 
 class ForwardModel(pints.ForwardModel):
@@ -35,7 +32,7 @@ class ForwardModel(pints.ForwardModel):
         model = myokit.load_model(myo_model)
         n_params = int(model.get('ikr.n_params').value())
         parameters = np.zeros(n_params)
-        for i in xrange(n_params):
+        for i in range(n_params):
             parameters[i] = model.get('ikr.p'+str(i+1)).value()
 
         self.parameters = parameters
@@ -102,7 +99,7 @@ class ForwardModel(pints.ForwardModel):
             self.transform_type, parameters, self.rate_dict, False)
 
         # Update model parameters
-        for i in xrange(int(self.n_params)):
+        for i in range(int(self.n_params)):
             self.simulation.set_constant('ikr.p'+str(i+1), parameters[i])
 
          # Run

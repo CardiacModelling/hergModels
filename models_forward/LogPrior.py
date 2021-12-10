@@ -1,17 +1,12 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 #
 # Pints ForwardModel that runs simulations with Kylie's model.
 # Sine waves optional
 #
-from __future__ import division
-from __future__ import print_function
-import os
 import pints
 import numpy as np
-import json
-import operator
-import util
-from Rates import ratesPrior
+import models_forward.util as util
+from models_forward.Rates import ratesPrior
 
 
 class LogPrior(pints.LogPrior):

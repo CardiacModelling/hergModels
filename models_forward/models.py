@@ -1,13 +1,8 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 #
 # Markov model builder. To run inference for a new model just add here using the builder. NB number the model.
 # 
 #
-from __future__ import division
-from __future__ import print_function
-import os
-import pints
-import numpy as np
 from markov import MarkovModel
 
 # Test

@@ -1,10 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Quick experiment with building markov models
 #
 #
 #
-from __future__ import print_function
 import myokit
 
 class State(object):

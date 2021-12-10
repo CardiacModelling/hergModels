@@ -1,21 +1,19 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 #
 # Fir a hERG ion channel model to Cell 5 data using CMA-ES
 #
-from __future__ import division, print_function
 import models_forward.pintsForwardModel as forwardModel
 import models_forward.LogPrior as prior
 import models_forward.dsLogLikelihood as dsLogLikelihood
 import models_forward.Rates as Rates
 import models_forward.util as util
-import models_forward.positive_priors as positive_priors
 import os
 import sys
 import pints
 import numpy as np
 import myokit
 import argparse
-import cPickle
+import pickle
 import matplotlib.pyplot as plt
 import time as timer
 
@@ -48,7 +46,7 @@ root = os.path.abspath('models_myokit')
 myo_model = os.path.join(root, model_name + '.mmt')
 root = os.path.abspath('rate_dictionaries')
 rate_file = os.path.join(root, model_name + '-priors.p')
-rate_dict = cPickle.load(open(rate_file, 'rb'))
+rate_dict = pickle.load(open(rate_file, 'rb'))
 
 sys.path.append(os.path.abspath('models_forward'))
 
@@ -148,7 +146,7 @@ rate_checker = Rates.ratesPrior(transform, lower_conductance)
 params, scores = [], []
 
 func_calls = []
-for i in xrange(args.repeats):
+for i in range(args.repeats):
     # Choose random starting point
     if args.discrepancy:
                 x01 = log_prior_model_params.sample().reshape((9,1))
@@ -158,7 +156,7 @@ for i in xrange(args.repeats):
     else:
         if i == 0:
             gary_guess = []
-            for j in xrange(int(n_params/2)):
+            for j in range(int(n_params/2)):
                 gary_guess.append(2e-3)  # A parameter [in A*exp(+/-B*V)]
                 gary_guess.append(0.05)  # B parameter [in A*exp(+/-B*V)]
             gary_guess.append(2*lower_conductance)

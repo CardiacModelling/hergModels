@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 #
 # Fit all model to Cell 5 data using CMA-ES and MCMC
 import argparse

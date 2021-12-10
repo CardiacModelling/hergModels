@@ -1,23 +1,15 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 #
 # Fit Kylie's model to Cell 5 data using CMA-ES
 #
-from __future__ import division, print_function
 import os
-import sys
-import pints
-import pints.plot as pplot
 import numpy as np
-import cPickle
-import random
 import math
-import myokit
 import argparse
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import matplotlib.patheffects as PathEffects
-from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 
 # Check input arguments

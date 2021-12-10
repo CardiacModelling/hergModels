@@ -1,4 +1,3 @@
-import os
 import pints
 import numpy as np
 import scipy.stats

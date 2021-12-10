@@ -1,17 +1,12 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 #
 # Fit hERG ion-channel models to sine-wave data using MCMC, with initialsation from CMA-ES
 #
-from __future__ import division, print_function
 import models_forward.LogPrior as prior
-import models_forward.tiLogLikelihood as LogLikelihood
 import models_forward.pintsForwardModel as forwardModel
 import models_forward.tiLogLikelihood as tiLogLikelihood
 import models_forward.dsLogLikelihood as dsLogLikelihood
-import models_forward.Rates as Rates
-import models_forward.util as util
 import os
-import sys
 import pints
 import pints.io
 import pints.plot as pplot

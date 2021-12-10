@@ -1,12 +1,8 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 #
 # Pints ForwardModel that runs simulations with Kylie's model.
 # Sine waves optional
 #
-from __future__ import division
-from __future__ import print_function
-import os
-import pints
 import numpy as np
 
 
@@ -33,7 +29,7 @@ class ratesPrior(object):
 
         self.vmin = -120
         self.vmax = 60
-        n = 1e3
+        n = 1000
         a = np.exp(np.linspace(np.log(self.lower_alpha),
                                np.log(self.upper_alpha), n))
         f_bmin = (1 / self.vmax) * (np.log(self.rmin) - np.log(a))
@@ -50,7 +46,7 @@ class ratesPrior(object):
     def _get_boundaries(self, rates_dict):
         b_low = []  # np.zeros(2*len(rates_dict)+1)
         b_up = []
-        for _, rate in rates_dict.iteritems():
+        for _, rate in rates_dict.items():
             # Sample forward rates
             if self.transform == 0:
                 if rate[2] == 'vol_ind':
@@ -110,7 +106,7 @@ class ratesPrior(object):
         # Always operates on the model (untransformed) parameters.
         debug = False
         # Check parameter boundaries
-        for names, rate in rates_dict.iteritems():
+        for names, rate in rates_dict.items():
 
             if parameters[rate[0]] < self.lower_alpha:
                 if debug:

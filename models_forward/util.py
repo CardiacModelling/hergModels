@@ -1,15 +1,10 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 #
 # Pints ForwardModel that runs simulations with Kylie's model.
 # Sine waves optional
 #
-from __future__ import division
-from __future__ import print_function
-import os
 import pints
 import numpy as np
-import myokit
-import myokit.pacing as pacing
 
 
 def erev(temperature):
@@ -211,18 +206,18 @@ def transformer(transform, parameters, rate_dict, logexp=True):
 
     """
     txd_params = np.copy(parameters)
-    
-    last_rate_type = rate_dict[rate_dict.keys()[-1]][-1]
+    list_keys = list(rate_dict.keys())
+    last_rate_type = rate_dict[list_keys[-1]][-1]
     if last_rate_type == 'vol_ind':
-        param_len = rate_dict[rate_dict.keys()[-1]][0] + 2 
+        param_len = rate_dict[list_keys[-1]][0] + 2 
     else:
-        param_len = rate_dict[rate_dict.keys()[-1]][1] + 2
+        param_len = rate_dict[list_keys[-1]][1] + 2
     # First the no transform case.
     if transform == 0:
         return txd_params
     # Then the Log A Linear B, linear conductance case
     elif transform == 1:
-        for names, rate in rate_dict.iteritems():
+        for names, rate in rate_dict.items():
             if logexp:
                 txd_params[rate[0]] = np.log(txd_params[rate[0]])
             else:

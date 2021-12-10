@@ -2,7 +2,6 @@
 #
 # Fit Kylie's model to Cell 5 data using CMA-ES
 #
-from __future__ import division, print_function
 import models_forward.pintsForwardModel as forwardModel
 import models_forward.LogPrior as prior
 import models_forward.Rates as Rates
@@ -10,7 +9,6 @@ import models_forward.util as util
 import os
 import sys
 import pints
-import pints.plot as pplot
 import numpy as np
 import scipy.stats
 from collections import namedtuple
@@ -19,7 +17,6 @@ import warnings
 import cPickle
 import myokit
 import argparse
-import matplotlib.pyplot as plt
 # Load a hERG model and prior
 
 # Check input arguments
