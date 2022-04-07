@@ -31,7 +31,7 @@ By default the MCMC will initialise the chains from CMA-ES fit of the iid noise 
 
 Finally, if you want to calculate the marginal likelihood using thermodynamic integration then use the following command, NB this is not supported for discrepancy model (non-iid noise) at the present:
 
-`python2 sinemcmc.py --thermo True`
+`python sinemcmc.py --thermo True`
 
 The above command runs MCMC chains at different temperatures to sample from power posteriors. You can control the number of temperatures (NB increasing this will increase run time) with the option `--ntemps`. See the file `sinemcmc.py` file for other options.
 
